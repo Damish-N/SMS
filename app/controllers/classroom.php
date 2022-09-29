@@ -20,12 +20,14 @@
 			if(isset($_POST['submit'])){
 				$section = $_POST['section'];
 				$grade = $_POST['grade'];
+				$stream = $_POST['stream'];
 				$class = addslashes(trim($_POST['class']));
 				$class_teacher_id = $_POST['class_teacher'];
 				$description = addslashes(trim($_POST['description']));
 
 				$details['section_id'] = $grade;
 				$details['class'] = $class;
+				$details['stream'] = $stream;
 				$details['class_teacher_id'] = $class_teacher_id;
 				$details['description'] = $description;
 				$classroom_obj = $this->load->classroom->register($details);

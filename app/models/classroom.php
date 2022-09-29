@@ -5,6 +5,7 @@
 		private $section_id;
 		private $grade;
 		private $class;
+		private $stream;
 		private $category;
 		private $class_teacher_id;
 		private $timetable_id;
@@ -200,6 +201,7 @@
 			$data['section_id'] = $this->section_id;
 			$data['grade'] = $this->grade;
 			$data['class'] = $this->class;
+			$data['stream'] = $this->stream;
 			$data['category'] = $this->category;
 			$data['class_teacher_id'] = $this->class_teacher_id;
 			$data['timetable_id'] = $this->timetable_id;

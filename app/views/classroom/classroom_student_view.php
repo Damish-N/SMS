@@ -42,6 +42,11 @@
 				<label class="col-4" for="class">Class</label>
 				<input type="text" name="class" placeholder="Class" value="<?php if(!empty($classroom_info)){echo $classroom_info['class'];} ?>" disabled="disable">
 			</div>
+
+			<div class="d-flex w-100">
+				<label class="col-4" for="stream">Stream</label>
+				<input type="text" name="stream" placeholder="Stream" value="<?php if(!empty($classroom_info)){echo $classroom_info['stream'];} ?>" disabled="disable">
+			</div>
 		</fieldset>
 		<hr class="w-100 mt-5">
 		<div class="col-10 flex-col">

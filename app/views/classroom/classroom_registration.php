@@ -25,36 +25,31 @@
 
     <form  method="post" action="<?php if(isset($result)){echo set_url('classroom/update/'.$result['id']);}else{echo set_url('classroom/registration');} ?>" class="col-6">
         <fieldset class="p-4">
-            <div class="form-group mt-1">
-                <label>Section</label>
-                <select name="section" id="section" required="required" onchange="get_classroom_grades(this,'grade')"  <?php if(isset($result) && !empty($result)){echo "disabled='disabled'"; }?>>
-                    <option value="">select</option>
-                    <?php 
-                        if(isset($categories) && !empty($categories)){
-                            foreach ($categories as $category) {
-                     ?>
-                     <option value="<?php echo $category['category'] ?>" <?php if(isset($result) && $result['category'] == $category['category']){echo "selected='selected'";} ?>><?php echo $category['category']; ?></option>
-                    <?php 
-                        }
-                    } ?>
-                </select> 
-            </div>
-
+            <input name="section" type="hidden" value="secondary">
             <div class="form-group mt-1">
                 <label>Grade</label>
                 <select name="grade" id="grade" required="required" <?php if(isset($result) && !empty($result)){echo "disabled='disabled'"; }?>>
                     <option value="">select</option>
-                    <?php 
-                    if(isset($sections) && !empty($sections)){
-                        foreach ($sections as $section) { ?>
-                            <option value="<?php echo $section['id']; ?>" <?php if(isset($result) && $result['section_id'] === $section['id']){echo "selected='selected'";} ?>><?php echo $section['grade']; ?></option>
-                    <?php } }?>
+                    <option value="1">12</option>
+                    <option value="2">13</option>
                 </select> 
             </div>
                 
             <div class="form-group mt-1">
                 <label>Class</label>
-                <input type="text" name="class" value="<?php if(isset($result)){echo $result['class'];} ?>" required="required" <?php if(isset($result) && !empty($result)){echo "disabled='disabled'"; }?>>
+                <input type="text" name="class" placeholder="Ex:- A, B, C..." value="<?php if(isset($result)){echo $result['class'];} ?>" required="required" <?php if(isset($result) && !empty($result)){echo "disabled='disabled'"; }?>>
+            </div>
+
+            <div class="form-group mt-1">
+                <label>Stream</label>
+                <select name="stream" id="stream" required="required" <?php if(isset($result) && !empty($result)){echo "disabled='disabled'"; }?>>
+                    <option value="">select</option>
+                    <option value="chemistry"  <?php if(isset($result) && $result['stream'] == "chemistry"){echo "selected='selected'";} ?>>Chemistry</option>
+                    <option value="physics" <?php if(isset($result) && $result['stream'] == "physics"){echo "selected='selected'";} ?>>Physics</option>
+                    <option value="maths" <?php if(isset($result) && $result['stream'] == "maths"){echo "selected='selected'";} ?>>Maths</option>
+                    <option value="bio" <?php if(isset($result) && $result['stream'] == "bio"){echo "selected='selected'";} ?>>Bio</option>
+                    <option value="ict" <?php if(isset($result) && $result['stream'] == "ict"){echo "selected='selected'";} ?>>ICT</option>
+                </select> 
             </div>
 
 
@@ -89,14 +84,5 @@
     </form>
 
     <form  id="upload_classrooms" class="col-12 d-flex justify-content-center" method="POST" enctype="multipart/form-data" action="<?php echo set_url("classroom/registration");?>">
-    <?php 
-        if($_SESSION['role']=='admin'){
-            echo '<div class="d-flex flex-row w-75 justify-content-center align-items-center">';
-            echo '<label></b>Upload Classroomss&nbsp&nbsp&nbsp</b></label>';
-            echo '<input type="file" name="file" id="file">';
-            echo '<input type="submit" name="upload" id="upload" onclick="//mark_classroom_attendance()" class="btn btn-blue m-1">';
-            echo '</div>';
-        }
-    ?>
     </form>
 </div>  

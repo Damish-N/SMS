@@ -11,17 +11,6 @@
 					<label for="" class="mr-3 d-normal">Grade : </label>
 					<select name="interview-panel-grade" id="interview-panel-grade" style="width: 100px">
 						<option value="all" <?php if(isset($_POST['interview-panel-grade'])){if($_POST['interview-panel-grade'] == "all"){echo 'selected="selected"';}}else{echo 'selected="selected"';} ?>>All</option>
-						<option value="1" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "1")){echo 'selected="selected"';} ?> >1</option>
-						<option value="2" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "2")){echo 'selected="selected"';} ?> >2</option>
-						<option value="3" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "3")){echo 'selected="selected"';} ?> >3</option>
-						<option value="4" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "4")){echo 'selected="selected"';} ?> >4</option>
-						<option value="5" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "5")){echo 'selected="selected"';} ?> >5</option>
-						<option value="6" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "6")){echo 'selected="selected"';} ?> >6</option>
-						<option value="7" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "7")){echo 'selected="selected"';} ?> >7</option>
-						<option value="8" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "8")){echo 'selected="selected"';} ?> >8</option>
-						<option value="9" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "9")){echo 'selected="selected"';} ?> >9</option>
-						<option value="10" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "10")){echo 'selected="selected"';} ?> >10</option>
-						<option value="11" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "11")){echo 'selected="selected"';} ?> >11</option>
 						<option value="12" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "12")){echo 'selected="selected"';} ?> >12</option>
 						<option value="13" <?php if(isset($_POST['interview-panel-grade']) && ($_POST['interview-panel-grade'] == "13")){echo 'selected="selected"';} ?> >13</option>
 					</select>

@@ -29,6 +29,11 @@
 	                <input type="text" value="<?php echo $result['class'] ?>" disabled="disabled">
 	            </div>
 
+				<div class="d-flex w-100">
+	                <label class="col-4">Stream</label>
+	                <input type="text" value="<?php echo $result['stream'] ?>" disabled="disabled">
+	            </div>
+
 
 	            <div class="d-flex w-100">
 	                <label class="col-4">Class Teacher</label>
