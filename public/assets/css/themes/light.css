@@ -1,0 +1,170 @@
+:root{
+	--body-bg :white;
+	--content-bg : white;
+	--header-bg : linear-gradient(to bottom, white, rgba(240,240,240));
+	--header-color: black;
+	--nav-item-active : darkblue;
+	--fieldset-border-color : darkblue;
+	--footer-bg:white;
+	--footer-color:black;
+	--border-color: darkblue;
+	--font-color: black;
+}
+
+.school-name span{
+	--color: darkblue;
+	--stoke: 0.3px white;
+}
+.school-name span.school-name-fade{
+	--color: darkblue;
+}
+
+table{
+	--border-top:none;
+	--border-right: none;
+	--border-bottom: 1px solid red;
+	--border-left: none;
+	--border:none;
+	--border-collapse: collapse;
+	--bg : none;
+	--border-radius : 10px;
+	--padding :5px;
+}
+
+
+table th, td{
+	--border-top: none;
+	--border-right: none;
+	--border-bottom: none;
+	--border-left: none;
+	--border: none;
+	--padding: 10px 20px 10px 5px;
+	--border-radius: none;
+}
+
+.table-strip-dark thead th{
+	--bg: #31326f;
+	--color: white;
+	--border-right: none;
+	--padding: 10px 5px 5px 5px;
+}
+
+.table-strip-dark thead th:last-child{
+	--border: none;
+}
+
+.table-strip-dark th:first-child{
+	--border-top-left-radius: 10px;
+}
+
+.table-strip-dark th:last-child{
+	--border: none;
+	--border-top-right-radius: 10px;
+}
+.table-strip-dark td:last-child{
+	--border: none;
+}
+
+.table-strip-dark tbody tr{
+	--border-bottom: 1px solid gray;
+}
+.table-strip-dark tbody tr:last-child{
+	--border-bottom: none;
+}
+
+.table-strip-dark tbody tr:nth-child(odd){
+	--bg: lightblue;
+	--color :black ;
+}
+.table-strip-dark tbody tr:nth-child(even){
+	--bg: white;
+	--color : black;	
+}
+
+
+.theme-sidebar{
+	--bg : white;
+	--color: black;
+	--sidebar-border-color: white;
+	--sidebar-link-color: black;
+	--sidebar-link-hover: darkblue;
+	--sidebar-border: none;
+	--border-radius: none;
+}
+
+.theme-sub-nav{
+	--bg : #20295b;
+	--color: ;
+	--sidebar-border-color: white;
+	--sidebar-link-color: black;
+	--sidebar-link-hover: darkblue;
+	
+}
+
+.section-wrapper,section{
+	--bg: none;
+	--border-radius: none;
+	--box-shadow: none;
+}
+
+h2{
+	--color: rgba(0,0,128,0.6);
+}
+
+.btn1{--bg: #11698e;--color: white;}
+.btn1:hover{--bg: #19456b;}
+
+.btn2{--bg: #ec4646;--color: white;}
+.btn2:hover{--bg: darkred;}
+
+.btn3{--bg: green;--color: white;}
+.btn3:hover{--bg: darkgreen;}
+
+.pagination-btn1{--bg: #11698e;--color: white}
+.pagination-btn1:hover{--bg: darkblue;}
+
+.pagination-btn2{--bg: #ec4646;--color: white}
+.pagination-btn2:hover{--bg: #dd2c00;}
+
+.pagination-btn3{--bg: gray;--color: white}
+.pagination-btn3:hover{--bg: darkgray;}
+
+
+.section-wrapper,section{
+	--bg: linear-gradient(to left top, rgba(240,240,240,0.5), rgba(240,240,240,0.8));
+	--border-radius: 20px;
+	--box-shadow: 6px 6px 10px rgba(122,122,122,0.4);
+	--display: flex;
+	--flex-direction: column;
+	--align-items: center;
+	--width: 95%;
+	--padding-right: 20px;
+	--padding-left: 20px;
+}
+.section-item{
+	--bg: linear-gradient(to left top, rgba(255,255,255,0.6), rgba(255,255,255,0.8));
+	--border-radius: 10px;
+	--box-shadow: 6px 6px 6px rgba(122,122,122,0.2);
+	--display: flex;
+	--flex-direction: column;
+	--align-items: center;
+	--width: 100%;
+	--padding-right: 20px;
+	--padding-left: 20px;
+}
+.header-hr{
+	--bg: white;
+	--height: 0;
+	--box-shadow:0 2px 4px 1px rgba(122,122,122,0.5);
+	--p: 0;
+	--m: 0;
+}
+.topic-hr{
+	--bg-image-color1:#f0f0f0;
+	--bg-image-color2:darkblue;
+	--bg-image-color3:#f0f0f0;
+	--height: 3px;
+	--box-shadow: none;
+	--p: 0;
+	--m: 0 0 10px 0;
+}
