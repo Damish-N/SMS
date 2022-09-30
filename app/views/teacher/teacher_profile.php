@@ -97,6 +97,11 @@
 				</div>
 			</form>
 	</div>
+
+	<div class="form-group d-flex flex-row w-90 justify-content-end">
+		<button type="button" name="submit" onclick="window.print()" class="btn btn-blue w-auto m-1">Download as pdf</button>
+	</div>
+	
 		<div class="col-12 mt-5 d-flex flex-col align-items-center">
 		<h2 class="mb-5">Links</h2>
 
