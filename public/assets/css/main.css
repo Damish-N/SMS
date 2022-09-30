@@ -34,6 +34,7 @@ body *{
 	bottom: 0px;
 	transition: all 0.25s ease-in 0.25s;
 	padding-bottom: 10px;
+	font-size: 12px;
  }
 
 #top-header{

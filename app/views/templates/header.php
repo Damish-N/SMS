@@ -24,7 +24,7 @@
 	<div class="container">
 		<div class="row theme-header sticky-top" id="top-header">
 			<div class="school-badge col-4 col-md-3 justify-content-center pt-2">
-				<a href="<?php echo set_url(''); ?>"><img src="<?php echo set_url('public/assets/img/school_badge') ?><?php if(!empty($header)){echo $header['badge'];}?>" width="80px" alt=""  id="school-badge" ></a>
+				<a href="<?php echo set_url(''); ?>"><img src="<?php echo set_url('public/assets/img/school_badge/') ?><?php if(!empty($header)){echo $header['badge'];}?>" width="80px" alt=""  id="school-badge" ></a>
 			</div> <!-- .school-badge -->
 			<div id="header-school-info" class="col-6 col-md-6 flex-col align-items-center">
 				<!-- <div class="d-flex flex-col bg-red align-items-start"> -->
