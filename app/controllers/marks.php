@@ -14,7 +14,7 @@
 			$data['student'] = $r;
 
 			//$student_id = 1100021;
-			$y=2020;
+			$y=2022;
 			$this->load->model('marks');
 			$subject_list = $this->load->marks->student_subject_lists($r['grade']);
 			$subject_list =$subject_list->fetchAll();
@@ -22,7 +22,7 @@
 
 
 			
-				for ($i=1; $i <=3 ; $i++) { 
+				for ($i=1; $i <=6 ; $i++) { 
 					$marks_total[$y.'-'.$i] = 0;
 					$marks_average[$y.'-'.$i] =0;
 
@@ -67,7 +67,7 @@
 
 			$data['marks_total'] =$marks_total;
 			$data['marks_average'] =$marks_average;
-			for ($i=1; $i <=3 ; $i++) { 
+			for ($i=1; $i <=6 ; $i++) { 
 				          if( ($marks_average[$y.'-'.$i] >= 75 )  && ($marks_average[$y.'-'.$i] <= 100 ) ){
                               $marks_bgcolor[$y.'-'.$i] = "style=\"background-color:#008000\"";
                           }
@@ -95,14 +95,17 @@
 			$data['y'] = $y;
 
 			if(isset($r['classroom_id']) && !empty($r['classroom_id'])){
-			for ($i=1; $i <=3 ; $i++) { 
+			for ($i=1; $i <=6; $i++) { 
 				
 					$rank = $this->load->marks-> get_rank($i,$r['classroom_id']);
 					$rank = $rank->fetchAll();
+					if(!$rank){
+						$student_rank['exam-'.$i] = 0;
+					}
 					foreach ($rank as $r) {
 						if($r['student_id']==$student_id && $marks_average[$y.'-'.$i]!==0){
 							//echo $r['rank'];
-							$student_rank[$i.'-term'] = $r['rank'];
+							$student_rank['exam-'.$i] = $r['rank'];
 						}
 					}
 			}
@@ -126,7 +129,7 @@
 		//view exam results for the students
 		public function classroom_marks_result_view($student_id,$t){
 			//$t=3;
-			$y=2020;
+			$y=2022;
 			$marks[][]="";
 
 			$this->load->model("student");
@@ -140,8 +143,10 @@
 			$this->load->model("marks");
 			$result = $this->load->classroom->set_by_id($classroom_id);
 			if(!$result){
-				echo "Results not found.";
-				exit();
+				$this->view_header_and_aside();
+				$data['student_list'] = null;
+				$this->load->view("exam/classroom_marks_view",$data);
+				$this->load->view("templates/footer");
 			}
 			$data['classroom_data'] = $this->load->classroom->get_data();
 			$data['student_list'] = $this->load->marks->get_classroom_marks($classroom_id);
@@ -158,7 +163,7 @@
 
 			if(isset($_POST['filter'])){
 				$term= $_POST['term'];
-				$y = 2020;
+				$y = 2022;
 				$data["t"] = $term;
 				$data["y"] = $y;
 
@@ -166,7 +171,7 @@
 
 			}
 				$term = 1;
-				$year = 2020;
+				$year = 2022;
 				foreach ($data['student_list'] as $student) {
 					$marks_total[$student['id'].'-'.$t]=0;
 					$rls = $this->load->marks->get_marks_by_student_id($student['id'],$t,$y);
@@ -192,7 +197,7 @@
 			$data['marks_total'] =$marks_total;
 			$data['marks_average'] =$marks_average;
 
-			for ($i=1; $i <=3 ; $i++) { 
+			for ($i=1; $i <=6 ; $i++) { 
 				
 					$rank = $this->load->marks-> get_rank($i,$classroom_id);
 					$rank = $rank->fetchAll();
@@ -259,7 +264,7 @@
 				return;
 			}*/
 			unset($_SESSION['cls_marks_upl']);
-			$y=2020;
+			$y=2022;
 			$con = new Database();
 			$marks[][]="";
 			$this->load->model("classroom");
@@ -280,13 +285,14 @@
 			$data["t"] = $t;
 			$data["y"] = $y;
 			$data['msg']=$msg;
+			
 
 			//$te = $con->insert("student_marks",["id"=>8, "marks"=> 23,"note"=>"","subject_id"=>1500009,"term"=>1,"year"=>2020]);
 			//$te = $con->insert("stu-marks",["id"=>2,"classroom_id"=>1400040,"student_id"=>1100022,"first_term_total"=>0,"second_term_total"=>0,"third_term_total"=>0]);
 
 			if(isset($_POST['filter'])){
 				$term= $_POST['term'];
-				$y = 2020;
+				$y = 2022;
 
 				$data["t"] = $term;
 				$data["y"] = $y;
@@ -296,8 +302,8 @@
 
 			
 			else{
-			$term = 1;
-			$year = 2020;
+			$term = $data["t"];
+			$year = $data["y"];
 			foreach ($data['student_list'] as $student) {
 				$marks_total[$student['id'].'-'.$t]=0;
 				$rls = $this->load->marks->get_marks_by_student_id($student['id'],$t,$y);
@@ -341,7 +347,6 @@
 					$subject_arr_no[$arr_no] = $subject['id'];
 					$arr_no++;
 				}
-
 				$filename = $_FILES["filename"]['name'];
 				$filetype = explode(".", $filename);
 				if(isset($_FILES['filename']['tmp_name']) && !empty($_FILES['filename']['tmp_name'])){
@@ -349,16 +354,16 @@
 					move_uploaded_file($_FILES['filename']['tmp_name'], $target.$filename);
 					$file = fopen(BASEPATH.$target.$_FILES["filename"]['name'],'r');
 					while (($line = fgetcsv($file)) !== FALSE) {
-						//print_r($line);echo "<br>";
+						// print_r($line);echo "<br>";
 						$cur_student_id = null;
 						foreach ($line as $key => $value) {
-							//echo $key;echo $value;echo "<br>";
+							echo $key;echo $value;echo "<br>";
 							if($key==0 && is_numeric($value)){
 								$cur_student_id = $value;
 							}
 
 							elseif ($key !== 1){
-								if(isset($cur_student_id)){
+								if(isset($cur_student_id) && isset($subject_arr_no[$key])){
 									$stu_marks[$cur_student_id.'-'.$subject_arr_no[$key]] = $value;
 									$marks[$cur_student_id.'-'.$subject_arr_no[$key]]= $value;
 								}
@@ -369,6 +374,10 @@
 					fclose($file);
 					unset($data['std_marks']);
 					$data['std_marks'] = $marks;
+					// print_r($marks);
+					// print_r($data["subject_list"]);
+					// print_r($data["student_list"]);
+					// exit();
 					$_SESSION['cls_marks_upl'] = $data;
 					header('Location:'.set_url("marks/upload"));
 					}
@@ -388,13 +397,22 @@
 					$term = $str[1];
 
 					if($term ==1){
-						$total_marks= $con->update("stu-marks",["first_term_total"=> $value], ["student_id"=>$std_id]);
+						$total_marks= $con->update("stu-marks",["exam_1_total"=> $value], ["student_id"=>$std_id]);
 					}
 					elseif($term ==2){
-						$total_marks= $con->update("stu-marks",["second_term_total"=> $value], ["student_id"=>$std_id]);
+						$total_marks= $con->update("stu-marks",["exam_2_total"=> $value], ["student_id"=>$std_id]);
 					}
 					elseif($term==3){
-						$total_marks= $con->update("stu-marks",["third_term_total"=> $value], ["student_id"=>$std_id]);
+						$total_marks= $con->update("stu-marks",["exam_3_total"=> $value], ["student_id"=>$std_id]);
+					}
+					elseif($term==4){
+						$total_marks= $con->update("stu-marks",["exam_4_total"=> $value], ["student_id"=>$std_id]);
+					}
+					elseif($term==5){
+						$total_marks= $con->update("stu-marks",["exam_5_total"=> $value], ["student_id"=>$std_id]);
+					}
+					elseif($term==6){
+						$total_marks= $con->update("stu-marks",["exam_6_total"=> $value], ["student_id"=>$std_id]);
 					}
 				}
 			}

@@ -6,7 +6,7 @@
     <div id="marks_notification" class="d-none w-75">
         <p style="background: #eee;" class="w-100 p-2 text-center fg-red"> </p>
     </div>
-    <div class="d-flex justify-content-center align-items-center">
+    <!-- <div class="d-flex justify-content-center align-items-center">
         <form id="marks_filter" class="d-flex align-items-center col-12" method="POST" action="<?php echo set_url("marks/classroom/result/view/$student_id/$t");?>">
             <div class="d-flex col-12 align-items-center justify-content-center">
                 
@@ -28,7 +28,7 @@
 
             </div>
         </form>
-    </div>
+    </div> -->
     <form  id="mark_view" class="col-12 d-flex justify-content-center" method="POST" action="<?php echo set_url("marks/classroom/result/view/$student_id/$t");?>">
         <div class="col-10 flex-col" style="overflow-x: scroll;overflow-y: hidden;">  
             <input type="hidden" name="classroom_id_hidden" class="btn btn-blue" value="<?php echo $classroom_data['id']; ?>">
