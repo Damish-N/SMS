@@ -17,7 +17,7 @@ function showDiv() {
         </div>
         <div class="col-10 flex-col" style="overflow-x: scroll;overflow-y: hidden;"> 
             <table class="table-strip-dark">
-                <caption class="p-5"><b>Student Marks<br><?php if(isset($classroom_data['grade'])){echo 'Grade-'.$classroom_data['grade'].$classroom_data['class']; }?><br><?php if(isset($y)){echo 'Year-'.$y; }?><br><?php if(isset($t)){echo 'Term-'.$t; }?><br></b></caption>
+                <caption class="p-5"><b>Student Marks<br><?php if(isset($classroom_data['grade'])){echo 'Grade-'.$classroom_data['grade'].$classroom_data['class']; }?><br><?php if(isset($y)){echo 'Year-'.$y; }?><br><?php if(isset($t))?><br></b></caption>
                     <thead>
                         <tr>
                             <th>Student ID</th>
@@ -43,7 +43,7 @@ function showDiv() {
                             	<?php 
                             		foreach ($subject_list as $subject) {
                             	?>
-                            		<td><input type="text" name="<?php echo $student['id'].'-'.$subject['id']; ?>" id="<?php echo $student['id'].'-'.$subject['id']; ?>" placeholder="" value="<?php if(isset($std_marks[$student['id'].'-'.$subject['id']])){echo $std_marks[$student['id'].'-'.$subject['id']];} ?>" maxlength="3" disabled></td>
+                            		<td><input type="text" name="<?php echo $student['id'].'-'.$subject['id']; ?>" id="<?php echo $student['id'].'-'.$subject['id']; ?>" placeholder="" value="<?php if(isset($std_marks[$student['id'].'-'.$subject['id']])){echo $std_marks[$student['id'].'-'.$subject['id']];} ?>" maxlength="3" ></td>
                             	<?php 
                             	}
 
@@ -64,8 +64,8 @@ function showDiv() {
         </div>
         <div class="d-flex flex-row w-75 justify-content-center align-items-center">
                 <label>Do you want to Upload this Marksheet ? &nbsp</label>
-            	<input type="submit" name="accept" id="accept" value="Accept" onclick="//mark_classroom_attendance()" class="btn btn-green m-1">
-                <input type="submit" name="cancel" id="cancel" value="Cancel" onclick="//mark_classroom_attendance()" class="btn btn-red m-1">
+            	<input type="submit" name="accept" id="accept" value="Accept" class="btn btn-green m-1">
+                <input type="submit" name="cancel" id="cancel" value="Cancel" class="btn btn-red m-1">
         </div>
     </form>
 
