@@ -39,12 +39,14 @@
 			<table class="w-100 table-strip-dark text-center">
 				<thead>
 					<tr>
-						<th style="width: 20%;">Time\Day</th>
-						<th style="width: 15%;">Mon</th>
-						<th style="width: 15%;">Tue</th>
-						<th style="width: 15%;">Wed</th>
-						<th style="width: 15%;">Thu</th>
-						<th style="width: 15%;">Fri</th>
+						<th style="width: 16%;">Time\Day</th>
+						<th style="width: 12%;">Mon</th>
+						<th style="width: 12%;">Tue</th>
+						<th style="width: 12%;">Wed</th>
+						<th style="width: 12%;">Thu</th>
+						<th style="width: 12%;">Fri</th>
+						<th style="width: 12%;">Sat</th>
+						<th style="width: 12%;">Sun</th>
 					</tr>
 				</thead>
 				<tbody>						
@@ -53,14 +55,14 @@
 					for ($i=1; $i <= 9; $i++) { 
 
 						if($i == 5){
-							echo "<tr><th colspan='6' class='text-center bg-gray fg-white'>Interval</th></tr>";
+							// echo "<tr><th colspan='6' class='text-center bg-gray fg-white'>Interval</th></tr>";
 							continue;
 						}
 						$period = $i > 5 ? $i-1 : $i;
 
 						$row = "<tr>";
 						$row .= "<th>".$time_map[$period]."</th>";
-						for ($j=1; $j <=5 ; $j++) { 
+						for ($j=1; $j <=7 ; $j++) { 
 							$td = $timetable["{$day_map[$j]}"][$period];
 							if($td=="FREE"){
 								$row .= "<td>";

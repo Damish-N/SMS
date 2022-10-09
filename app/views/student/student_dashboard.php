@@ -43,14 +43,14 @@
 						for ($i=1; $i <= 9; $i++) { 
 
 							if($i == 5){
-								echo "<tr><th colspan='6' class='text-center bg-gray fg-white'>Interval</th></tr>";
+								// echo "<tr><th colspan='6' class='text-center bg-gray fg-white'>Interval</th></tr>";
 								continue;
 							}
 							$period = $i > 5 ? $i-1 : $i;
 
 							$row = "<tr>";
 							$row .= "<th>".$time_map[$period]."</th>";
-							for ($j=1; $j <=5 ; $j++) { 
+							for ($j=1; $j <=7 ; $j++) { 
 								if($day_map[$j]==strtolower($cur_day)){
 								$row .= "<td class='text-center' style='height:48px' >";
 								$row .= $timetable_data[$day_map[$j]][$period];
