@@ -21,9 +21,10 @@
 	define("ASSETS", PUB.'assets'.DS );
 
 	//autoload all classes
-	$modules = [CORE,CONTROLLERS,MODELS,VIEWS,HELPERS];
+	$modules = [CORE, CONTROLLERS,MODELS,VIEWS,HELPERS];
 	set_include_path(get_include_path(). PATH_SEPARATOR.implode(PATH_SEPARATOR, $modules));
-	spl_autoload_register('spl_autoload',false);
+	spl_autoload_extensions('.php,.inc');
+	spl_autoload_register();
 	
 	require_once(CONFIG."config.php");
 	require_once(HELPERS."url_helper.php");
