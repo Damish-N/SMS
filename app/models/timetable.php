@@ -65,8 +65,8 @@
 		// get complete timetable as assosoative array
 		public function get_timetable(){
 			$result_set = $this->con->select($this->tables[1], array("timetable_id"=>$this->id));
-			$timetable = array("mon"=>[], "tue"=>[],"wed"=>[],"thu"=>[],"fri"=>[]);
-			if($result_set && $result_set->rowCount() == 40){
+			$timetable = array("mon"=>[], "tue"=>[],"wed"=>[],"thu"=>[],"fri"=>[], "sat"=>[], "sun"=>[]);
+			if($result_set){
 				$result_set = $result_set->fetchAll();
 				foreach ($result_set as $result) {
 					$timetable[$result['day']][$result['period']] = $result['task'];
@@ -79,7 +79,7 @@
 
 		// create new timetable
 		public function create($user_id,$type,$task=0){
-			$days = ['mon', "tue" , "wed", "thu", "fri"];	
+			$days = ['mon', "tue" , "wed", "thu", "fri", "sat", "sun"];	
 			try{
 				$this->con->db->beginTransaction();
 				$result = $this->con->insert("normal_timetable",array("user_id"=>$user_id,"type"=>$type));

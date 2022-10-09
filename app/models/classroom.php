@@ -149,7 +149,10 @@
 					$this->con->db->beginTransaction();
 					foreach ($timetable as $day => $periods) {
 						foreach ($periods as $period => $task) {
-							if($task != "FREE"){
+							if($task == 0){
+								$timetable["{$day}"]["{$period}"] = "FREE";
+							}
+							else if($task != "FREE"){
 								$exp = explode("--", $task);
 								if($exp[0] == "OP"){
 									$timetable["{$day}"]["{$period}"] = $exp[1];

@@ -106,8 +106,8 @@
                 $this->load->view("templates/footer");
                 return;
             }
-            $time_map = ["1"=>"7.50a.m - 8.30a.m", "2"=>"8.30a.m - 9.10a.m", "3"=>"9.10a.m - 9.50a.m", "4"=> "9.50a.m - 10.30a.m", "5"=> "10.50a.m - 11.30a.m", "6"=>"11.30a.m - 12.10p.m", "7"=> "12.10p.m - 12.50p.m", "8"=>"12.50p.m - 1.30p.m"];
-            $day_map = ["1"=>"mon","2"=>"tue","3"=>"wed","4"=>"thu","5"=>"fri"];
+            $time_map = ["1"=>"2.30p.m - 3.30p.m", "2"=>"3.30p.m - 4.30p.m", "3"=>"4.30p.m - 5.30p.m", "4"=> "5.30p.m - 6.30p.m", "5"=> "6.30p.m - 7.30p.m", "6"=>"7.30p.m - 8.30p.m", "7"=> "8.30p.m - 9.30p.m", "8"=>"9.30p.m - 10.30p.m"];
+			$day_map = ["1"=>"mon","2"=>"tue","3"=>"wed","4"=>"thu","5"=>"fri", "6"=>"sat", "7" => "sun"];
             $timetable_data = [];
             $classroom_id = NULL;
             $grade = NULL;
@@ -124,6 +124,7 @@
                 $grade = $this->load->student->get_grade();
                 $class = $this->load->student->get_class();
                 $cls = $this->load->student->get_classroom_object();
+
                 if($cls){
                     $classroom_id = $cls->get_id();
                     $tt = $cls->get_converted_timetable();
@@ -451,8 +452,8 @@
 
 
 
- $time_map = ["1"=>"7.50a.m - 8.30a.m", "2"=>"8.30a.m - 9.10a.m", "3"=>"9.10a.m - 9.50a.m", "4"=> "9.50a.m - 10.30a.m", "5"=> "10.50a.m - 11.30a.m", "6"=>"11.30a.m - 12.10p.m", "7"=> "12.10p.m - 12.50p.m", "8"=>"12.50p.m - 1.30p.m"];
-            $day_map = ["1"=>"mon","2"=>"tue","3"=>"wed","4"=>"thu","5"=>"fri"];
+            $time_map = ["1"=>"2.30p.m - 3.30p.m", "2"=>"3.30p.m - 4.30p.m", "3"=>"4.30p.m - 5.30p.m", "4"=> "5.30p.m - 6.30p.m", "5"=> "6.30p.m - 7.30p.m", "6"=>"7.30p.m - 8.30p.m", "7"=> "8.30p.m - 9.30p.m", "8"=>"9.30p.m - 10.30p.m"];
+			$day_map = ["1"=>"mon","2"=>"tue","3"=>"wed","4"=>"thu","5"=>"fri", "6"=>"sat", "7" => "sun"];
             $timetable_data = [];
             $classroom_id = NULL;
             $grade = NULL;

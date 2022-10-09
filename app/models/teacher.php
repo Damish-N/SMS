@@ -178,8 +178,9 @@
         	try {
 	        	foreach ($timetable as $day => $periods) {
 	        		foreach ($periods as $period => $task) {
-	        			if($task == "FREE"){
-	        				continue;
+	        			if($task == "FREE" || $task == 0){
+	        				$timetable[$day][$period] = "FREE";
+							continue;
 	        			}
 	        			$ext = explode("-", $task);
 	        			$this->con->get(['name']);

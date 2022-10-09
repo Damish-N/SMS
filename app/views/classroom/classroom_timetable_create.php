@@ -1,6 +1,6 @@
 <?php 
-	$time_map = ["1"=>"7.50a.m - 8.30a.m", "2"=>"8.30a.m - 9.10a.m", "3"=>"9.10a.m - 9.50a.m", "4"=> "9.50a.m - 10.30a.m", "5"=> "10.50a.m - 11.30a.m", "6"=>"11.30a.m - 12.10p.m", "7"=> "12.10p.m - 12.50p.m", "8"=>"12.50p.m - 1.30p.m"];
-	$day_map = ["1"=>"mon","2"=>"tue","3"=>"wed","4"=>"thu","5"=>"fri"];
+	$time_map = ["1"=>"2.30p.m - 3.30p.m", "2"=>"3.30p.m - 4.30p.m", "3"=>"4.30p.m - 5.30p.m", "4"=> "5.30p.m - 6.30p.m", "5"=> "6.30p.m - 7.30p.m", "6"=>"7.30p.m - 8.30p.m", "7"=> "8.30p.m - 9.30p.m", "8"=>"9.30p.m - 10.30p.m"];
+	$day_map = ["1"=>"mon","2"=>"tue","3"=>"wed","4"=>"thu","5"=>"fri", "6"=>"sat", "7" => "sun"];
  ?>
 
 <div id="content" class="col-11 col-md-8 col-lg-9 flex-col align-items-center justify-content-start">
@@ -33,15 +33,17 @@
 	<div class="col-12 d-flex flex-col mt-5">
 		<div class="p-5">
 			<form action="<?php echo set_url('classroom/timetable/'.$classroom_id); ?>" method="post" id="timetable_form">
-				<table class="w-100 table-strip-dark" id="classroom_timetable">
+				<table class="w-100 table-strip-dark" style="overflowX: scroll !important;" id="classroom_timetable">
 					<thead>
 						<tr>
-							<th style="width: 20%;">Time\Day</th>
-							<th style="width: 15%;">Mon</th>
-							<th style="width: 15%;">Tue</th>
-							<th style="width: 15%;">Wed</th>
-							<th style="width: 15%;">Thu</th>
-							<th style="width: 15%;">Fri</th>
+							<th style="width: 16%;">Time\Day</th>
+							<th style="width: 12%;">Mon</th>
+							<th style="width: 12%;">Tue</th>
+							<th style="width: 12%;">Wed</th>
+							<th style="width: 12%;">Thu</th>
+							<th style="width: 12%;">Fri</th>
+							<th style="width: 12%;">Sat</th>
+							<th style="width: 12%;">Sun</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -53,14 +55,13 @@
 						for ($i=1; $i <= 9; $i++) { 
 
 							if($i == 5){
-								echo "<tr><th colspan='6' class='text-center bg-gray fg-white'>Interval</th></tr>";
 								continue;
 							}
 							$period = $i > 5 ? $i-1 : $i;
 
 							$row = "<tr>";
 							$row .= "<th>".$time_map[$period]."</th>";
-							for ($j=1; $j <=5 ; $j++) { 
+							for ($j=1; $j <=7 ; $j++) { 
 								$row .= "<td>";
 								$row .= '<select name="'.$day_map[$j].'-'.$period.'" id="'.$day_map[$j].'-'.$period.'">';
 									$row .= '<option value="FREE">FREE</option>';
