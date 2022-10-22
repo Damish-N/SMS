@@ -259,15 +259,20 @@
 				// update general subjects
 				if(!empty($subjects['General'])){
 					foreach ($subjects['General'] as $subject) {
-						$result = $this->con->insert("class_subject",["classroom_id"=>$this->id,"subject_id"=>$subject['id'], "periods"=>$subject['periods']]);
-						if(!$result){
-							throw new PDOException();
+						
+						try{
+							$result = $this->con->insert("class_subject",["classroom_id"=>$this->id,"subject_id"=>$subject['id'], "periods"=>$subject['periods']]);
+						}catch(Exception $e ){
+							
 						}
-						if($result->rowCount() === 0){
-							$result = $this->con->update("class_subject",["periods"=>$subject['periods']], ["classroom_id"=>$this->id,"subject_id"=>$subject['id']]);
-							if(!$result){
+						
+						if(!$result || $result->rowCount() === 0){
+							try{
+								$result = $this->con->update("class_subject",["periods"=>$subject['periods']], ["classroom_id"=>$this->id,"subject_id"=>$subject['id']]);
+							}catch(Exception $e){
 								throw new PDOException();
 							}
+						
 							$tmp = [];
 							for ($i=0; $i < count($gen_sub) ; $i++) { 
 								if($subject['id']!=$gen_sub[$i]['id']){
