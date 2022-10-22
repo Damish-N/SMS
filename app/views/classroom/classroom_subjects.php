@@ -160,7 +160,7 @@
 			<div class="col-12" id="other-subject-wrapper">
 				<!-- dummy select for other -->
 				<select class="col-6 d-none mr-2" name="dummy-subject-other" id="dummy-subject-other" disabled="disabled">
-					<option value="">Select Subject</option>
+					<option value="None">Select Subject</option>
 					<?php if(isset($other_subjects) && !empty($other_subjects)){
 						   foreach ($other_subjects as $subject) { ?>
 							<option value="<?php echo $subject['id']; ?>"><?php echo $subject['name']; ?></option>

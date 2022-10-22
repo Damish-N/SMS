@@ -13,6 +13,7 @@
 		private $get;
 		private $order;
 		private $limit;
+		private $is_cleaned;
 
 		public function __construct(){
 			global $db_config;
@@ -32,6 +33,7 @@
 			$this->get = "";
 			$this->order = "";
 			$this->limit = "";
+			$this->is_cleaned = true;
 			$this->parameters = array();
 		}
 
@@ -68,6 +70,7 @@
 			$this->get = "";
 			$this->order = "";
 			$this->limit = "";
+			$this->is_cleaned = true;
 			$this->parameters = array();
 		}
 
@@ -109,6 +112,11 @@
 		}
 
 		public function insert($table,$fields){
+
+			if($this->is_cleaned == false){
+				$this->reset_values();
+			}
+			$this->is_cleaned = false;
 			$this->query .= "INSERT INTO ";
 
 			$this->query .= "`".$table."` ";
@@ -142,6 +150,10 @@
 		}
 
 		public function delete($table, $fields=NULL){
+			if($this->is_cleaned == false){
+				$this->reset_values();
+			}
+			$this->is_cleaned = false;
 			
 			$this->query .= "DELETE FROM ";
 
@@ -170,7 +182,11 @@
 		}
 
 		public function update($table,$fields,$wheres=NULL){
-			$this->query .= "UPDATE `".$table."` SET ";
+			if($this->is_cleaned == false){
+				$this->reset_values();
+			}
+			$this->is_cleaned = false;
+			$this->query = "UPDATE `".$table."` SET ";
 			$set = "";
 			$pre_arr = array();
 			foreach ($fields as $key => $value) {
@@ -181,6 +197,7 @@
 					$set .= ", `".$key."` = ? ";
 				}
 			}
+			
 			$this->parameters = array_merge($pre_arr,$this->parameters);
 			$this->query .= $set." ";
 			if($wheres == NULL){

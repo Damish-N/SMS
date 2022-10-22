@@ -609,7 +609,9 @@
 			}
 
 			// when update the classroom subjects
+			
 			if(isset($_POST['submit'])){
+				
 				$subjects = ["General"=>[],"Optional"=>[],"Other"=>[]];
 				foreach ($_POST as $key => $value) {
 					if($value=="None"){
