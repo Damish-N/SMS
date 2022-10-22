@@ -16,14 +16,14 @@
 	 ?>
 	<div class="d-flex flex-col align-items-center mt-5 col-12">
 		<div class="mt-5  w-75 d-flex flex-col align-items-center">
-		    <h2 class="pt-3 pb-3">Define Interview Panel Timetable</h2>
+		    <h2 class="pt-3 pb-3">Define pending Registration List Timetable</h2>
 		    <hr class="topic-hr w-100">
 		</div>
 
 		<div id="interview-timetable" class="mt-5 col-10">
 			<form action="<?php  echo set_url('interviewpanel/timetable/').$panel_id;?>" class="col-12" method="post">
 				<table class="w-100">
-					<caption>Interview panel timetable</caption>
+					<caption>Pending Registration List timetable</caption>
 					<thead>
 						<tr>
 						<th >Time</th>

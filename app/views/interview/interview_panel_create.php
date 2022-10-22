@@ -14,7 +14,7 @@
         }
 	 ?>
 	<div class="mt-5 w-75 d-flex flex-col align-items-center">
-		<h2>Create and Update Interview Panel</h2>
+		<h2>Create and Update Pending Registration </h2>
 		<hr class="topic-hr w-100">
 	</div>
 	<form action="<?php if(isset($interview_panel['id'])){echo set_url('interviewpanel/view/'.$interview_panel['id']);} else{ echo set_url('interviewpanel/registration'); }; ?>" class="col-12" method="POST">

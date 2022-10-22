@@ -10,7 +10,7 @@
 	 ?>
 
 	<div>
-		<h2>Create and Update Interview Panel</h2>
+		<h2>Create and Update Pending Registration List</h2>
 	</div>
 	<form action="<?php echo set_url('interviewpanel/view/'.$interview_panel['id']); ?>" class="col-12" method="POST">
 		<div class="col-12 col-lg-6 p-3">

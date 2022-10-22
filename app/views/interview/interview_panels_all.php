@@ -1,6 +1,6 @@
 <div id="content" class="col-11 col-md-8 col-lg-9 flex-col align-items-center justify-content-start">
 	<div class="admissions-header mt-5  w-75 d-flex flex-col align-items-center">
-		<h2 class="fs-30">Interview Panel List</h2>
+		<h2 class="fs-30">Pending Registration List</h2>
 		<hr class="topic-hr w-100">
 	</div> <!-- .admission-header -->
 	<div id="all-admission-table"  class="admissions-table">

@@ -84,7 +84,7 @@
 				</li>
 				<li id="interview-li" class="nav-item aside-li">
 					<a href="<?php echo set_url('interviewpanel/list') ?>" class="nav-link">
-						<i class="fas fa-clock"></i>Interviews
+						<i class="fas fa-clock"></i>Pending Registrations
 					</a>
 					<button class="toggle-button" target="interview-nav">
 						<img src="<?php echo set_url('public/assets/img/menu_arrow.png') ?>" width="20px">
