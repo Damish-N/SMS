@@ -70,7 +70,7 @@
 							<tr>
 		                        <td class='text-center'><?php echo $result['id']; ?></td>
 		                        <td class="text-center"><?php echo $result['grade']; ?></td>
-		                        <td class="text-center"><?php echo $result['class']; ?></td>
+		                        <td ><?php echo $result['class'].' ('.$result['stream'].')'; ?></td>
 		                        <td class="text-center"><?php if(!empty($result['class_teacher_id'])){echo $result['class_teacher_id'];}else{echo 'Not Asign';} ?></td>
 								<td class="text-center">
 									<div>
