@@ -31,7 +31,7 @@
 	</form>
 
 
-	<form action="<?php echo set_url('pages/teacher_subject_student_list.php',array('id'=>$_GET['id'])) ?>" method="POST" class="col-11 d-flex flex-col align-items-center">
+	<form  class="col-11 d-flex flex-col align-items-center">
 		<fieldset class="p-3 col-12">
 			<legend>Student Info</legend>
 			<div class="col-12 mt-5 flex-col" style="overflow-x: scroll;overflow-y: hidden;">
