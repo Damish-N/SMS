@@ -47,7 +47,7 @@
 	</form>
 
 
-	<form action="<?php echo set_url('pages/teacher_subject_student_list.php',array('id'=>$_GET['id'])) ?>" method="POST" class="col-12 d-flex flex-col align-items-center">
+	<form class="col-12 d-flex flex-col align-items-center">
 		<fieldset class="col-12 p-3">
 			<legend>Student Info</legend>
 			<table class="table-strip-dark col-12">
