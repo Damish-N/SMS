@@ -647,7 +647,7 @@ function classroom_attendance_comparission_bar(){
 		        }
 	        }else if(response.type == "school"){
 	        	flag = false;
-	        	title = `School Attendance ( ${form_array[2][1]} )`;
+	        	title = `Attendance ( ${form_array[2][1]} )`;
 	        	present_data.push(data.present[0]);
 	        	absent_data.push(data.absent[0]);
 	        }else if(response.type == "classroom"){
